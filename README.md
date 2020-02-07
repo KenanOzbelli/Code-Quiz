@@ -5,4 +5,4 @@ Description: this is a coding game I have developed was really challenging to ma
 
 link: 
 
-![Alt text](assets/screenshot.gif)
+![Alt text](./assets/screenshot.gif)
