@@ -76,6 +76,8 @@ const generateQuestions = () => {
     let Title = questions[questionNumber].title;
     Answer = questions[questionNumber].answer;
 
+    answerContainer.innerHTML = "";
+
     questionText.innerHTML = Title;
 
     Question.map((data)=>{
@@ -105,11 +107,33 @@ answerContainer.addEventListener("click", event => {
 })
 
 const displayScore = () => {
-    console.log('DONE')
+    document.querySelector("#questions").classList.add("d-none");
+    document.querySelector("#submit-score").classList.remove("d-none");
+
+    userScoreEl.innerText = 'Seconds Left ' + secondsLeft;
+}
+
+const submitScore = (event) => {
+    event.preventDefault();
+
+    var highscores = JSON.parse(localStorage.getItem("Highscores" || [])) == null ? [] : JSON.parse(localStorage.getItem("Highscores"|| []));
+
+    let name = document.querySelector('#userName').value;
+    let addScore = secondsLeft;
+
+    const user ={
+        name: name,
+        score: addScore
+    }
+
+    highscores.push(user);
+
+    localStorage.setItem("Highscores", JSON.stringify(highscores));
+    window.location.href ='highscores.html';
 }
 
 startBtn.addEventListener("click", startQuiz);
-
+submitBtn.addEventListener("click", submitScore);
 
 
 
