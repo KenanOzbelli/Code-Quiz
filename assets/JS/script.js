@@ -56,7 +56,7 @@ const generateQuestions = () => {
 
         button.innerText = `${data}`;
 
-        answerContainer.appendChild(button).setAttribute("class", "btn-block btn-dark")
+        answerContainer.appendChild(button).setAttribute("class", "btn-block btn btn-dark")
     });
 }
 
@@ -81,7 +81,7 @@ const displayScore = () => {
     document.querySelector("#questions").classList.add("d-none");
     document.querySelector("#submit-score").classList.remove("d-none");
 
-    userScoreEl.innerText = 'Seconds Left ' + secondsLeft;
+    userScoreEl.innerText = 'Seconds Left: ' + secondsLeft;
 }
 
 const submitScore = (event) => {
