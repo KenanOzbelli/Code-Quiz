@@ -16,8 +16,8 @@ var scoreList = document.querySelector('#score-list');
     clearbtn.addEventListener("click", (event)=> {
         event.preventDefault();
         localStorage.clear();
-        history.back();
+        window.location.href='index.html';
     });
     goBackBtn.addEventListener("click", function(){
-        history.back();
+        window.location.href='index.html';
     })
