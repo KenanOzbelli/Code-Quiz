@@ -13,37 +13,34 @@
  
     <header class = "p-3" style = "background: black;" > 
         <a href="highscores.html"style = " color: antiquewhite; text-decoration: none;">Highscores</a>
-        <div id = "timer" class = "float-right" style="color: antiquewhite;"> Time: 0</div>
+        <div id = "timer" class="float-right" style="color: antiquewhite;"> Time: 75</div>
     </header>
-    <div class ="container mt-5"  id = "startingPage">
+    <div class ="container mt-5" id="startingPage">
         <div class ="row justify-content-center">
             <div class = "col-10 text-center">
                 <h1>Coding Quiz</h1>
                 <p>Hello bucakroo you will have 75 minutes to play this quiz</p>
                 <p><strong>Warning: </strong>If you get an answer wrong you will be deducted 10 seconds</p>
                 <p><strong>Warning: </strong>If you get it right then you will be added 5 seconds back</p>
-                <button id="startbutton" class="btn-dark" style = "color:antiquewhite">Start</button>
+                <button id="startbutton" class="btn-dark" style="color:antiquewhite">Start</button>
             </div>
         </div>
     </div>
 
-                            <!-- the actual quiz with the questions -->
+       <!-- the actual quiz with the questions -->
 
-    <div class = "container mt-5 d-none" id="quizQ">
-        <div class = "row justify-content-center">
-            <div class = "col-10">
-                <h3 id = "questions" class="text-center" >Questions</h3>
-                <ul id = "answers" class ="list-unstyled m-5">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                <p class = "responseFeed text-center "></p>
+    <div class="container mt-5 d-none" id="questions">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h3 class="text-center">Questions</h3>
+                <h4 class='questionText'></h4>
+                <ul id="answers" class="list-unstyled m-5"></ul>
+                <p class="responseFeed text-center"></p>
             </div>
         </div>
     </div>
-                        <!-- finished Screen -->
+
+    <!-- finished Screen -->
     <div class = "container mt-5 d-none" id ="submit-score">
         <div class ="row justify-content-center">
             <div class = "col-10 text-center">
@@ -52,13 +49,12 @@
                 <form class = "form-quiz">
                     <label for="new-score">Enter Your Name:</label>
                     <input type ="text" id="userName">
-                    <button type ="button" id= "submitBtn">Submit</button>
+                    <button type ="button" id="submitBtn">Submit</button>
                 </form>
             </div>
         </div>
     </div>
-    <script src="assets/java/questions.js"></script>
-    <script src="assets/java/script.js" ></script>
+    <script src="assets/JS Files/script.js" ></script>
 </body>
 
 </html>
