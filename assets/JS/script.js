@@ -1,4 +1,3 @@
-
 var secondsLeft = 75;
 var questionNumber = -1;
 var questionNumberTxt = 1;
@@ -9,7 +8,6 @@ var submitBtn = document.getElementById("submitBtn");
 var timerEl = document.getElementById("timer");
 var userScoreEl = document.getElementById("user-score");
 var responseFeed = document.querySelector(".responseFeed");
-var userNameInput;
 var answerContainer = document.getElementById("answers"); 
 var Answer; 
 
@@ -39,7 +37,7 @@ const generateQuestions = () => {
     if(questionNumber >= 6){
         return;
     }
-    
+
     // Heading for Questions 
     questionHeading.innerText = "Question " + questionNumberTxt;
     questionNumberTxt++;
