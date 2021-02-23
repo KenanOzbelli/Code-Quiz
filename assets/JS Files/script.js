@@ -32,13 +32,17 @@ var questions = [
 ];
 var secondsLeft = 75;
 var questionNumber = -1;
+var questionNumberTxt = 1;
+var questionHeading = document.querySelector('.questionHeading');
+var questionText = document.querySelector('.questionText');
 var startBtn = document.getElementById("startbutton");
 var submitBtn = document.getElementById("submitBtn");
 var timerEl = document.getElementById("timer");
 var userScoreEl = document.getElementById("user-score");
+var responseFeed = document.querySelector(".responseFeed");
 var userNameInput;
 var answerContainer = document.getElementById("answers"); 
-var answer; 
+var Answer; 
 
 function startQuiz(){
     document.querySelector("#startingPage").classList.add("d-none");
@@ -52,33 +56,59 @@ const startTimer = () => {
     let counter = setInterval(() => {
         secondsLeft--;
         timerEl.innerHTML = "Time: " + secondsLeft;
-    },1000)
-    if(secondsLeft === 0 || questionNumber === questions.length){
+
+    if(secondsLeft <= 0 || questionNumber === questions.length){
         clearInterval(counter);
         setTimeout(displayScore, 500);
     }
+},1000)
 }
 
 const generateQuestions = () => {
-    questionNumber++
+    questionNumber++;
+
+    // Heading for Questions 
+    questionHeading.innerText = "Question " + questionNumberTxt;
+    questionNumberTxt++;
+
+    // variables for the question attributes
     let Question = questions[questionNumber].choices;
     let Title = questions[questionNumber].title;
-    let Answer = questions[questionNumber].answer;
-    
+    Answer = questions[questionNumber].answer;
+
+    questionText.innerHTML = Title;
+
+    Question.map((data)=>{
+        const button = document.createElement("button");
+
+        button.innerText = `${data}`;
+
+        answerContainer.appendChild(button).setAttribute("class", "btn-block btn-dark")
+    });
 }
+
+answerContainer.addEventListener("click", event => {
+    if(event.target.textContent === Answer){
+        responseFeed.innerText = "Correct";
+        setTimeout(()=> {
+            responseFeed.innerText = "";
+        }, 500)
+        secondsLeft = secondsLeft + 5;
+    }else{
+        responseFeed.innerText = "Incorrect";
+        setTimeout(()=> {
+            responseFeed.innerText = "";
+        }, 500)
+        secondsLeft = secondsLeft - 10;
+    }
+    generateQuestions();
+})
 
 const displayScore = () => {
     console.log('DONE')
 }
 
 startBtn.addEventListener("click", startQuiz);
-
-
-
-
-
-
-
 
 
 
