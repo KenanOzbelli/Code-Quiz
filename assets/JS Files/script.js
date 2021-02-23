@@ -28,14 +28,17 @@ const startTimer = () => {
 
     if(secondsLeft <= 0 || questionNumber === questions.length){
         clearInterval(counter);
-        setTimeout(displayScore, 500);
+        displayScore();
     }
 },1000)
 }
 
 const generateQuestions = () => {
     questionNumber++;
-
+    
+    if(questionNumber >= 6){
+        return;
+    }
     // Heading for Questions 
     questionHeading.innerText = "Question " + questionNumberTxt;
     questionNumberTxt++;
@@ -72,7 +75,7 @@ answerContainer.addEventListener("click", event => {
         }, 500)
         secondsLeft = secondsLeft - 10;
     }
-    generateQuestions();
+        generateQuestions();
 })
 
 const displayScore = () => {
