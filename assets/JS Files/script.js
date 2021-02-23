@@ -39,6 +39,7 @@ const generateQuestions = () => {
     if(questionNumber >= 6){
         return;
     }
+    
     // Heading for Questions 
     questionHeading.innerText = "Question " + questionNumberTxt;
     questionNumberTxt++;
